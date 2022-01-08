@@ -11,12 +11,12 @@ class Conversation(core_models.TimeStampedModel):
         blank=True,
     )
 
+    # participant 네임 추가 안해서 나오지 않ㅡ
     def __str__(self):
         usernames = []
         for user in self.participants.all():
-            usernames.append(user.usernames)
-        # return ", ".join(usernames)
-        return self.participants.all()
+            usernames.append(user.username)
+        return ", ".join(usernames)
 
     def count_messages(self):
         return self.messages.count()
