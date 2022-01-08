@@ -11,7 +11,7 @@ class Conversation(core_models.TimeStampedModel):
         blank=True,
     )
 
-    # participant 네임 추가 안해서 나오지 않ㅡ
+    # participant 네임 추가 안해서 나오지 않음
     def __str__(self):
         usernames = []
         for user in self.participants.all():
