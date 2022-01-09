@@ -2,7 +2,6 @@ from django.db import models
 from django.db.models.deletion import CASCADE
 from core import models as core_models
 from django_countries.fields import CountryField
-from users import models as user_models
 
 
 class AbstractItem(core_models.TimeStampedModel):
@@ -56,7 +55,7 @@ class Photo(core_models.TimeStampedModel):
     """Photo Model Definition"""
 
     caption = models.CharField(max_length=80)
-    file = models.ImageField()
+    file = models.ImageField(upload_to="room_photos")
     room = models.ForeignKey("Room", related_name="photos", on_delete=CASCADE)
 
     def __str__(self):
@@ -92,6 +91,10 @@ class Room(core_models.TimeStampedModel):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        self.city = self.city.title()
+        super().save(*args, **kwargs)
 
     def total_rating(self):
         all_reviews = self.reviews.all()
