@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from pickle import TRUE
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -39,7 +40,7 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
 ]
 
-THIRD_PARTY_APPS = ["django_countries", "django_seed"]
+THIRD_PARTY_APPS = ["django_countries", "django_seed", "send_gmail"]
 
 PROJECT_APPS = [
     "core.apps.CoreConfig",
@@ -139,3 +140,13 @@ AUTH_USER_MODEL = "users.User"
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 
 MEDIA_URL = "/media/"
+
+# Email
+
+EMAIL_BACKEND = "django.core.backends.smtp.EmailBackend"
+EMAIL_HOST = "stmp.gmail.com"
+EMAIL_HOST_USER = "venuscwj123@gmail.com"
+EMAIL_HOST_PASSWORD = "..?"
+EMAIL_PORT = "587"
+EMAIL_USE_TLS = TRUE
+EMAIL_FROM = "venuscwj123@gmail.com"
