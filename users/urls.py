@@ -11,6 +11,16 @@ urlpatterns = [
         name="login",
     ),
     path(
+        "login/github",
+        views.github_login,
+        name="github-login",
+    ),
+    path(
+        "login/github/callback",
+        views.github_callback,
+        name="github-callback",
+    ),
+    path(
         "logout",
         views.log_out,
         name="logout",

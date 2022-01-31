@@ -5,7 +5,8 @@
 {% endblock page_title %}
     
 {% block content %}
-    
+{% include 'partials/social_login.html' %}
+
     Hello!
     <form method="POST" action="{% url "users:signup" %}">{% csrf_token %}
     {{form.as_p}}
