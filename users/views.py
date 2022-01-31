@@ -184,7 +184,7 @@ def kakao_callback(request):
             if profile_image is not None:
                 photo_request = requests.get(profile_image)
                 user.avatar.save(
-                    f"{nickname}-avatar.jpg", ContentFile(photo_request.content)
+                    f"{nickname}-avatar", ContentFile(photo_request.content)
                 )
         login(request, user)
         return redirect(reverse("core:home"))
