@@ -5,31 +5,21 @@ Home
 {% endblock page_title %} 
 {% block content %} 
 
-<div class="container rounded-3xl mx-auto bg-gray-800 h-50vh mt-32 mb-24 bg-cover bg-center" style="background-image:url(https://images.unsplash.com/photo-1601621915196-2621bfb0cd6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2372&q=80)">
-
+<div class="container mx-auto">
+    <div class="rounded-3xl -mx-40 bg-gray-800 h-50vh mt-32 mb-24 bg-cover bg-center" style="background-image:url(https://images.unsplash.com/photo-1601621915196-2621bfb0cd6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2372&q=80)"></div>
+    <div class="flex flex-wrap -mx-40">
+    {% for room in rooms %}
+        {% include 'partials/room_card.html' with room=room %}
+    {% endfor %} 
+    </div>
+    <h5>
+        {% if page_obj.has_previous%}
+        <a href="?page={{page_obj.previous_page_number}}">Previous</a>    
+        {% endif %}
+        Page {{page_obj.number}} of {{page_obj.paginator.num_pages}}
+        {% if page_obj.has_next  %}
+        <a href="?page={{page_obj.next_page_number}}">Next</a>    
+        {% endif %}
+    </h5>
 </div>
-
-{% for room in rooms %}
-
-<h4>
-    <a href="{% url "rooms:detail" room.pk %}">{{room.name}} / ${{room.price}}</a>
-</h4>
-
-{% endfor %} 
-
-<h5>
-    
-    {% if page_obj.has_previous%}
-    <a href="?page={{page_obj.previous_page_number}}">Previous</a>    
-    {% endif %}
-    Page {{page_obj.number}} of {{page_obj.paginator.num_pages}}
-    {% if page_obj.has_next  %}
-    <a href="?page={{page_obj.next_page_number}}">Next</a>    
-    {% endif %}
-        
-    
-</h5>
-
-
-
 {% endblock content %}
