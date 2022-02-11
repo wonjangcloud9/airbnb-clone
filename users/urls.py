@@ -51,6 +51,11 @@ urlpatterns = [
         name="update",
     ),
     path(
+        "update-password/",
+        views.UpdatePasswordView.as_view(),
+        name="password",
+    ),
+    path(
         "<int:pk>/",
         views.UserProfileView.as_view(),
         name="profile",
