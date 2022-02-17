@@ -56,6 +56,11 @@ urlpatterns = [
         name="password",
     ),
     path(
+        "switch-hosting/",
+        views.switch_hosting,
+        name="switch-hosting",
+    ),
+    path(
         "<int:pk>/",
         views.UserProfileView.as_view(),
         name="profile",
