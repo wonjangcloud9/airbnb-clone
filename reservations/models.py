@@ -3,6 +3,16 @@ from core import models as core_models
 from django.utils import timezone
 
 
+class BookedDay(core_models.TimeStampedModel):
+
+    day = models.DateField()
+    reservation = models.ForeignKey("Reservation", on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = "Booked Day"
+        verbose_name_plural = "Booked Days"
+
+
 class Reservation(core_models.TimeStampedModel):
 
     """Reservation Model Definition"""
@@ -39,3 +49,10 @@ class Reservation(core_models.TimeStampedModel):
         return now > self.check_out
 
     is_finished.boolean = True
+
+    def save(self, *args, **kwargs):
+        if self.pk is None:
+            print("im new")
+        else:
+            print("im old")
+            return super().save(*args, **kwargs)
