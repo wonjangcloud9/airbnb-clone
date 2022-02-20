@@ -51,8 +51,13 @@ class Reservation(core_models.TimeStampedModel):
     is_finished.boolean = True
 
     def save(self, *args, **kwargs):
-        if self.pk is None:
-            print("im new")
+        if True:
+            start = self.check_in
+            end = self.check_out
+            difference = end - start
+            existing_booked_day = BookedDay.objects.filter(day__range=(start, end)).exists()
+            if existing_booked_day == False:
+                
         else:
             print("im old")
             return super().save(*args, **kwargs)
