@@ -65,4 +65,9 @@ urlpatterns = [
         views.UserProfileView.as_view(),
         name="profile",
     ),
+    path(
+        "switch-language/",
+        views.switch_language,
+        name="switch-language",
+    ),
 ]
