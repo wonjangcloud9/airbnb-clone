@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-25 21:50+0900\n"
+"POT-Creation-Date: 2022-02-25 23:24+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,3 +29,32 @@ msgstr "무단 복사 금지"
 #: templates/partials/footer.html:7
 msgid "All rights reserved."
 msgstr "모든 저작권은 저희에게 있습니다."
+
+#: templates/rooms/room_list.html:22
+#, python-format
+msgid "Page %(current_page)s of %(total_pages)s"
+msgstr "%(current_page)s 페이지 | %(total_pages)s"
+
+#: users/mixins.py:13
+msgid "Can't go there"
+msgstr "접근할 수 없음"
+
+#: users/models.py:21
+msgid "male"
+msgstr "남자"
+
+#: users/models.py:22
+msgid "female"
+msgstr "여자"
+
+#: users/models.py:23
+msgid "other"
+msgstr "기타"
+
+#: users/models.py:30
+msgid "English"
+msgstr "미국"
+
+#: users/models.py:31
+msgid "Korean"
+msgstr "한국"

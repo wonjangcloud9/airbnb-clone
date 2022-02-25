@@ -1,4 +1,5 @@
 import uuid
+from django.utils.translation import gettext_lazy as _
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
@@ -17,17 +18,17 @@ class User(AbstractUser):
     GENDER_OTHER = "other"
 
     GENDER_CHOICES = (
-        (GENDER_MALE, "male"),
-        (GENDER_FEMALE, "female"),
-        (GENDER_OTHER, "other"),
+        (GENDER_MALE, _("male")),
+        (GENDER_FEMALE, _("female")),
+        (GENDER_OTHER, _("other")),
     )
 
     LANGUAGE_ENGLISH = "en"
     LANGUAGE_KOREAN = "kr"
 
     LANGUAGE_CHOICES = (
-        (LANGUAGE_ENGLISH, "english"),
-        (LANGUAGE_KOREAN, "korean"),
+        (LANGUAGE_ENGLISH, _("English")),
+        (LANGUAGE_KOREAN, _("Korean")),
     )
 
     CURRENCY_USD = "usd"
